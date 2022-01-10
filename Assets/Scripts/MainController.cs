@@ -51,8 +51,7 @@ public class MainController : MonoBehaviour
     private void ColocarPiedras() {
         for(int i =0; i<numeroPiedras; i++) {
             float x = (numeroPiedras/2 - i) * (separacion + anchoPiedra);
-            //steps[numeroPiedras - i] = 
-            Instantiate(steppingStonePrefab, new Vector3(x, 0.0f, 0.0f), Quaternion.identity);
+            steps[numeroPiedras - i - 1] = Instantiate(steppingStonePrefab, new Vector3(x, 0.0f, 0.0f), Quaternion.identity);
         }
     }
 
