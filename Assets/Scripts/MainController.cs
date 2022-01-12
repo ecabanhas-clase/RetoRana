@@ -8,18 +8,21 @@ public class MainController : MonoBehaviour
     public GameObject steppingStonePrefab;
 
     public float separacion;
-    private float anchoPiedra;
+    public float anchoPiedra;
 
     private GameObject[] steps;
 
     private GameObject rana;
 
-    private int numeroPiedras = 10;
+    public int numeroPiedras = 10;
+    public float constanteSeparacion = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
         if(ranaPrefab == null) {
             Debug.Log("No está establecido el prefab para la rana");
+        } else {
+            ranaPrefab.GetComponent<RanaScript>().mainController = this;
         }
 
         if(steppingStonePrefab == null) {
@@ -29,7 +32,7 @@ public class MainController : MonoBehaviour
         }
 
         if(separacion == 0) {
-            separacion = 1.0f;
+            separacion = constanteSeparacion;
         }
 
         steps = new GameObject[numeroPiedras];
